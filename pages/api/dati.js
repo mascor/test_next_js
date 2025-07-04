@@ -4,9 +4,8 @@ import path from 'path'
 import { readFileSync } from 'fs'
 
 if (!getApps().length) {
-  const serviceAccount = JSON.parse(
-    readFileSync(path.resolve('esp32-casa-4af4e-firebase-adminsdk-fbsvc-75c97b9cd4.json'), 'utf8')
-  )
+  console.log('FIREBASE_SERVICE_ACCOUNT exists:', process.env.FIREBASE_SERVICE_ACCOUNT)
+  const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT)
 
   initializeApp({
     credential: cert(serviceAccount),
