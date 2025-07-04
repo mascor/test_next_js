@@ -1,10 +1,7 @@
 import { initializeApp, cert, getApps } from 'firebase-admin/app'
 import { getDatabase } from 'firebase-admin/database'
-import path from 'path'
-import { readFileSync } from 'fs'
 
 if (!getApps().length) {
-  console.log('FIREBASE_SERVICE_ACCOUNT exists:', process.env.FIREBASE_SERVICE_ACCOUNT)
   const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT)
 
   initializeApp({
